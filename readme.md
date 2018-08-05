@@ -35,8 +35,6 @@ you can use like this
 ```
 
 ```java
-PieChartView pieChart = (PieChartView) findViewById(R.id.pieChart);
-
 pieChart.setDataPoints(floatArrayOf(450F, 1230F, 200F, 400F))
 pieChart.setCenterColor(Color.WHITE)
 pieChart.setSliceColor(intArrayOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW))
