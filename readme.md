@@ -35,9 +35,9 @@ you can use like this
 ```
 
 ```java
-pieChartOutcome.setDataPoints(floatArrayOf(450F, 1230F, 200F, 400F))
-pieChartOutcome.setCenterColor(R.color.light_pink)
-pieChartOutcome.setSliceColor(intArrayOf(
+pieChart.setDataPoints(floatArrayOf(450F, 1230F, 200F, 400F))
+pieChart.setCenterColor(R.color.light_pink)
+pieChart.setSliceColor(intArrayOf(
                 R.color.duck_egg_blue_two,
                 R.color.soft_pink,
                 R.color.washed_out_green,
