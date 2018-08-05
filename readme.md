@@ -20,7 +20,7 @@ Add the dependency
 
 ```gradle
 dependencies {
-    implementation 'com.github.andhikayuana:simple-pie-chart-android:fbf24c7903'
+    implementation 'com.github.andhikayuana:simple-pie-chart-android:f4936f3c01'
 }
 ```
 
@@ -35,9 +35,13 @@ you can use like this
 ```
 
 ```java
-pieChart.setDataPoints(floatArrayOf(450F, 1230F, 200F, 400F))
-pieChart.setCenterColor(Color.WHITE)
-pieChart.setSliceColor(intArrayOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW))
+pieChartOutcome.setDataPoints(floatArrayOf(450F, 1230F, 200F, 400F))
+pieChartOutcome.setCenterColor(R.color.light_pink)
+pieChartOutcome.setSliceColor(intArrayOf(
+                R.color.duck_egg_blue_two,
+                R.color.soft_pink,
+                R.color.washed_out_green,
+                R.color.sunshine_yellow))
 ```
 
 ## Contributing
