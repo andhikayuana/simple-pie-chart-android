@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
+import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.view.View
 
@@ -56,7 +57,7 @@ class PieChartView @JvmOverloads constructor(
         var sliceStartPoint = 0F
 
         for (i in scaledValues.indices) {
-            slicePaint.color = sliceColors[i]
+            slicePaint.color = ContextCompat.getColor(context, sliceColors[i])
             canvas!!.drawArc(rectF, sliceStartPoint, scaledValues[i], true, slicePaint)
             sliceStartPoint += scaledValues[i]
         }
@@ -77,7 +78,7 @@ class PieChartView @JvmOverloads constructor(
     fun getTotal(): Float = dataPoints.sum()
 
     fun setCenterColor(colorId: Int) {
-        centerPaint.color = colorId
+        centerPaint.color = ContextCompat.getColor(context, colorId)
     }
 
     fun setSliceColor(colors: IntArray) {
