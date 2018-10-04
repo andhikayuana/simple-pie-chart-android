@@ -20,7 +20,7 @@ Add the dependency
 
 ```gradle
 dependencies {
-    implementation 'com.github.andhikayuana:simple-pie-chart-android:f4936f3c01'
+    implementation 'com.github.andhikayuana:simple-pie-chart-android:e7d9622aa9'
 }
 ```
 
