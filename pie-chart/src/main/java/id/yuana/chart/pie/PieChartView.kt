@@ -23,8 +23,8 @@ class PieChartView @JvmOverloads constructor(
     private var slicePaint: Paint = Paint()
     private var centerPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var sliceColors: IntArray = intArrayOf(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW)
-    private lateinit var rectF: RectF
-    private lateinit var dataPoints: FloatArray
+    private var rectF: RectF? = null
+    private var dataPoints: FloatArray = floatArrayOf()
 
     init {
         slicePaint.isAntiAlias = true
@@ -71,17 +71,25 @@ class PieChartView @JvmOverloads constructor(
 
     }
 
+    fun getTotal(): Float = dataPoints.sum()
+
     fun setDataPoints(data: FloatArray) {
         dataPoints = data
+        invalidateAndRequestLayout()
     }
-
-    fun getTotal(): Float = dataPoints.sum()
 
     fun setCenterColor(colorId: Int) {
         centerPaint.color = ContextCompat.getColor(context, colorId)
+        invalidateAndRequestLayout()
     }
 
     fun setSliceColor(colors: IntArray) {
         sliceColors = colors
+        invalidateAndRequestLayout()
+    }
+
+    private fun invalidateAndRequestLayout() {
+        invalidate()
+        requestLayout()
     }
 }
