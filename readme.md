@@ -2,6 +2,8 @@
 
 Simple PieChartView for Android
 
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Andhika%20Yuana-green.svg?style=flat )]( https://android-arsenal.com/details/1/7186 )
+
 ![](example.png?raw=true)
 
 ## Installation
