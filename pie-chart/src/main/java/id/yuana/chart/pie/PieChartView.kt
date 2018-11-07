@@ -46,29 +46,30 @@ class PieChartView @JvmOverloads constructor(
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        val startTop = 0F
-        val startLeft = 0F
-        val endBottom = width.toFloat()
-        val endRight = endBottom
 
-        rectF = RectF(startLeft, startTop, endRight, endBottom)
+        canvas?.let {
+            val startTop = 0F
+            val startLeft = 0F
+            val endBottom = width.toFloat()
+            val endRight = endBottom
 
-        val scaledValues = scale()
-        var sliceStartPoint = 0F
+            rectF = RectF(startLeft, startTop, endRight, endBottom)
 
-        for (i in scaledValues.indices) {
-            slicePaint.color = ContextCompat.getColor(context, sliceColors[i])
-            canvas!!.drawArc(rectF, sliceStartPoint, scaledValues[i], true, slicePaint)
-            sliceStartPoint += scaledValues[i]
+            val scaledValues = scale()
+            var sliceStartPoint = 0F
+
+            for (i in scaledValues.indices) {
+                slicePaint.color = ContextCompat.getColor(context, sliceColors[i])
+                it.drawArc(rectF, sliceStartPoint, scaledValues[i], true, slicePaint)
+                sliceStartPoint += scaledValues[i]
+            }
+
+            val centerX = (measuredWidth / 2).toFloat()
+            val centerY = (measuredHeight / 2).toFloat()
+            val radius = Math.min(centerX, centerY)
+
+            it.drawCircle(centerX, centerY, radius - 70, centerPaint)
         }
-
-
-        val centerX = (measuredWidth / 2).toFloat()
-        val centerY = (measuredHeight / 2).toFloat()
-        val radius = Math.min(centerX, centerY)
-
-        canvas!!.drawCircle(centerX, centerY, radius - 70, centerPaint)
-
     }
 
     fun getTotal(): Float = dataPoints.sum()
